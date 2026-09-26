@@ -1,0 +1,20 @@
+{
+  "name": "cx-templates",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Biblioteca visual de templates de e-mail em HTML (documentação + preview + copiar).",
+  "scripts": {
+    "serve": "node scripts/serve.js",
+    "dev": "node scripts/serve.js",
+    "test": "node --test \"tests/**/*.test.js\"",
+    "lint": "eslint .",
+    "build": "node scripts/build.js"
+  },
+  "devDependencies": {
+    "eslint": "^9.13.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Biblioteca de templates de e-mail em HTML prontos para personalizar, copiar e usar em campanhas e automações."
+    />
+    <title>Templates de e-mail</title>
+    <link rel="stylesheet" href="assets/css/tokens.css" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/app.css" />
+  </head>
+  <body>
+    <a href="#grid" class="visually-hidden">Pular para os templates</a>
+
+    <!-- Cabeçalho do produto -->
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <span class="brand">
+          <img
+            class="brand__logo"
+            src="assets/img/email_cx.webp"
+            alt="CX Templates"
+            width="120"
+          />
+        </span>
+      </div>
+    </header>
+
+    <main class="container" id="main">
+      <!-- Introdução -->
+      <section class="page-intro">
+        <h1 class="page-title">Templates de e-mail</h1>
+        <p class="page-desc">
+          Modelos prontos para você personalizar, copiar e usar em suas
+          campanhas e automações.
+        </p>
+
+        <!-- Toolbar: busca + contador -->
+        <div class="toolbar">
+          <div class="search">
+            <span class="search__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="7" />
+                <path d="m21 21-4.3-4.3" />
+              </svg>
+            </span>
+            <label for="search" class="visually-hidden">Pesquisar templates</label>
+            <input
+              id="search"
+              class="search__input"
+              type="search"
+              placeholder="Pesquisar por nome, categoria ou assunto…"
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <button id="search-clear" class="search__clear" type="button" aria-label="Limpar pesquisa" hidden>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M18 6 6 18M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <p class="result-count" id="result-count" aria-hidden="true">Carregando…</p>
+        </div>
+
+        <!-- Filtros dinâmicos por categoria -->
+        <div class="filters" id="filters"></div>
+      </section>
+
+      <!-- Grade de templates -->
+      <section
+        class="grid"
+        id="grid"
+        aria-label="Lista de templates de e-mail"
+        aria-busy="true"
+      ></section>
+    </main>
+
+    <!-- Região viva para leitores de tela -->
+    <div class="sr-live" id="sr-live" role="status" aria-live="polite"></div>
+
+    <script type="module" src="assets/js/app.js"></script>
+  </body>
+</html>

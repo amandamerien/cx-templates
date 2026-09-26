@@ -1,0 +1,163 @@
+/* =============================================================
+   Design System — Tokens
+   Fonte única de cores, tipografia, espaçamentos, raios e sombras.
+   Suporta tema claro (padrão) e escuro via prefers-color-scheme.
+   ============================================================= */
+
+:root {
+  color-scheme: light;
+
+  /* ---- Paleta base (neutros) ---- */
+  --slate-50: #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-300: #cbd5e1;
+  --slate-400: #94a3b8;
+  --slate-500: #64748b;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+  --slate-950: #020617;
+
+  /* ---- Marca (accent) ---- */
+  --brand-50: #eef2ff;
+  --brand-100: #e0e7ff;
+  --brand-200: #c7d2fe;
+  --brand-300: #a5b4fc;
+  --brand-400: #818cf8;
+  --brand-500: #6366f1;
+  --brand-600: #4f46e5;
+  --brand-700: #4338ca;
+  --brand-800: #3730a3;
+
+  /* ---- Feedback ---- */
+  --success-50: #ecfdf5;
+  --success-500: #10b981;
+  --success-600: #059669;
+  --success-700: #047857;
+  --danger-50: #fef2f2;
+  --danger-500: #ef4444;
+  --danger-600: #dc2626;
+  --danger-700: #b91c1c;
+
+  /* ---- Superfícies / semânticos (tema claro) ---- */
+  --bg: var(--slate-50);
+  --surface: #ffffff;
+  --surface-2: var(--slate-100);
+  --surface-hover: var(--slate-50);
+  --border: var(--slate-200);
+  --border-strong: var(--slate-300);
+  --text: var(--slate-900);
+  --text-muted: var(--slate-500);
+  --text-subtle: var(--slate-400);
+  --text-inverse: #ffffff;
+
+  --accent: #151515;
+  --accent-hover: #2d2d2d;
+  --accent-soft: #ededee;
+  --accent-soft-border: #dcdce0;
+  --accent-text-on-soft: #151515;
+
+  --ring: rgba(21, 21, 21, 0.4);
+
+  /* Botões primários (CTA) — mesma cor nos dois temas */
+  --btn-primary-bg: #84dddb;
+  --btn-primary-bg-hover: #6bd0ce;
+  --btn-primary-text: #0f172a;
+
+  /* Barra do topo — sempre escura (combina com o logo e a cor predominante) */
+  --header-bg: #151515;
+  --header-border: rgba(255, 255, 255, 0.08);
+  --header-text: #ffffff;
+
+  /* ---- Tipografia ---- */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "SFMono-Regular", Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.25rem;
+  --fs-2xl: 1.5rem;
+  --fs-3xl: 1.875rem;
+  --fs-4xl: 2.25rem;
+
+  --lh-tight: 1.2;
+  --lh-snug: 1.4;
+  --lh-normal: 1.6;
+
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* ---- Espaçamentos (escala de 4px) ---- */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.25rem;
+  --sp-6: 1.5rem;
+  --sp-8: 2rem;
+  --sp-10: 2.5rem;
+  --sp-12: 3rem;
+  --sp-16: 4rem;
+
+  /* ---- Raios ---- */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* ---- Sombras ---- */
+  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08), 0 2px 4px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.14), 0 4px 8px rgba(15, 23, 42, 0.06);
+
+  /* ---- Layout ---- */
+  --container: 1200px;
+  --header-h: 64px;
+
+  /* ---- Transições ---- */
+  --t-fast: 120ms ease;
+  --t-base: 200ms ease;
+}
+
+/* Tema escuro disponível por opt-in (<html data-theme="dark">).
+   A plataforma é branca por padrão, independentemente do modo do sistema. */
+:root[data-theme="dark"] {
+    --bg: var(--slate-950);
+    --surface: var(--slate-900);
+    --surface-2: var(--slate-800);
+    --surface-hover: #16233b;
+    --border: #24324a;
+    --border-strong: var(--slate-700);
+    --text: var(--slate-100);
+    --text-muted: var(--slate-400);
+    --text-subtle: var(--slate-500);
+    --text-inverse: var(--slate-900);
+
+    /* No escuro, #151515 seria invisível: usamos um neutro claro (mesma
+       identidade monocromática) para o accent, mantendo contraste. */
+    --accent: #ededee;
+    --accent-hover: #ffffff;
+    --accent-soft: rgba(255, 255, 255, 0.1);
+    --accent-soft-border: rgba(255, 255, 255, 0.22);
+    --accent-text-on-soft: #ededee;
+
+    --ring: rgba(237, 237, 238, 0.5);
+
+    --success-50: rgba(16, 185, 129, 0.12);
+    --danger-50: rgba(239, 68, 68, 0.12);
+
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.6);
+}

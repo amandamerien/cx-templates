@@ -1,0 +1,104 @@
+/**
+ * Registry central de templates.
+ *
+ * >>> PARA ADICIONAR UM NOVO TEMPLATE <<<
+ *   1. Crie o arquivo HTML+metadados em ./templates/<slug>.js
+ *      (exporte uma constante `template` seguindo o tipo EmailTemplate).
+ *   2. Importe-o aqui.
+ *   3. Adicione-o ao array `templates` abaixo.
+ *   Pronto — ele aparece automaticamente na biblioteca, e sua categoria/segmento
+ *   passam a existir nos filtros sem nenhuma outra alteração de interface.
+ */
+
+import { template as boasVindasPresentes } from "./templates/boas-vindas-presentes.js";
+import { template as clubeDaSujeiraCupom } from "./templates/clube-da-sujeira-cupom.js";
+import { template as graoCoAniversario } from "./templates/grao-co-aniversario.js";
+import { template as minhaHistoriaCupom } from "./templates/minha-historia-cupom.js";
+import { template as soltaLeve2Pague1 } from "./templates/solta-leve2-pague1.js";
+import { template as passoVoltaAsAulas } from "./templates/passo-volta-as-aulas.js";
+import { template as doceLabLancamento } from "./templates/doce-lab-lancamento.js";
+import { template as casaMuchachoCombos } from "./templates/casa-muchacho-combos.js";
+import { template as momoPetIndiqueGanhe } from "./templates/momo-pet-indique-ganhe.js";
+import { template as lunaAssistenteSono } from "./templates/luna-assistente-sono.js";
+import { template as leveNovoValor } from "./templates/leve-novo-valor.js";
+import { template as beatflowClubeBeneficios } from "./templates/beatflow-clube-beneficios.js";
+import { template as helenaPradoBoasVindas } from "./templates/helena-prado-boas-vindas.js";
+import { template as bravusBarbeariaAgende } from "./templates/bravus-barbearia-agende.js";
+import { template as edducaDogTreinamento } from "./templates/edduca-dog-treinamento.js";
+import { template as advideoAiAnuncios } from "./templates/advideo-ai-anuncios.js";
+import { template as primeiroContato } from "./templates/primeiro-contato.js";
+import { template as confirmacaoConsulta } from "./templates/confirmacao-consulta.js";
+import { template as lembreteDocumentos } from "./templates/lembrete-documentos.js";
+import { ALL_CATEGORY, sortCategories } from "./categories.js";
+
+/**
+ * Fonte única de verdade. A ordem aqui é a ordem padrão de exibição.
+ * @type {import("../../../types/template").EmailTemplate[]}
+ */
+export const templates = [
+  boasVindasPresentes,
+  clubeDaSujeiraCupom,
+  graoCoAniversario,
+  minhaHistoriaCupom,
+  soltaLeve2Pague1,
+  passoVoltaAsAulas,
+  doceLabLancamento,
+  casaMuchachoCombos,
+  momoPetIndiqueGanhe,
+  lunaAssistenteSono,
+  leveNovoValor,
+  beatflowClubeBeneficios,
+  helenaPradoBoasVindas,
+  bravusBarbeariaAgende,
+  edducaDogTreinamento,
+  advideoAiAnuncios,
+  primeiroContato,
+  confirmacaoConsulta,
+  lembreteDocumentos,
+];
+
+/**
+ * Deriva as categorias realmente usadas pelos templates (com "Todos" na frente),
+ * ordenadas segundo o catálogo. Filtros são, portanto, dinâmicos.
+ * @param {import("../../../types/template").EmailTemplate[]} [list=templates]
+ * @returns {string[]}
+ */
+export function getCategories(list = templates) {
+  const used = new Set(list.map((t) => t.category).filter(Boolean));
+  return [ALL_CATEGORY, ...sortCategories([...used])];
+}
+
+/**
+ * Deriva os segmentos usados pelos templates.
+ * @param {import("../../../types/template").EmailTemplate[]} [list=templates]
+ * @returns {string[]}
+ */
+export function getSegments(list = templates) {
+  return [...new Set(list.map((t) => t.segment).filter(Boolean))].sort((a, b) =>
+    a.localeCompare(b, "pt-BR")
+  );
+}
+
+/**
+ * Conta quantos templates existem por categoria.
+ * @param {import("../../../types/template").EmailTemplate[]} [list=templates]
+ * @returns {Record<string, number>}
+ */
+export function getCategoryCounts(list = templates) {
+  /** @type {Record<string, number>} */
+  const counts = { [ALL_CATEGORY]: list.length };
+  for (const t of list) {
+    counts[t.category] = (counts[t.category] || 0) + 1;
+  }
+  return counts;
+}
+
+/**
+ * Busca um template pelo slug.
+ * @param {string} slug
+ * @param {import("../../../types/template").EmailTemplate[]} [list=templates]
+ * @returns {import("../../../types/template").EmailTemplate | undefined}
+ */
+export function getTemplateBySlug(slug, list = templates) {
+  return list.find((t) => t.slug === slug);
+}
