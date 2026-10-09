@@ -23,6 +23,7 @@ export const CATEGORY_ORDER = [
   "Promoção",
   "Proposta",
   "Documentos",
+  "Newsletter",
   "Pós-atendimento",
   "Reativação",
   "Institucional",

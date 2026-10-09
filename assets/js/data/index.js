@@ -42,6 +42,10 @@ import { template as bakerNoirBoasVindas } from "./templates/baker-noir-boas-vin
 import { template as primeiroContato } from "./templates/primeiro-contato.js";
 import { template as confirmacaoConsulta } from "./templates/confirmacao-consulta.js";
 import { template as lembreteDocumentos } from "./templates/lembrete-documentos.js";
+import { template as prosaDicasLeitura } from "./templates/prosa-dicas-leitura.js";
+import { template as prosaCodigoVerificacao } from "./templates/prosa-codigo-verificacao.js";
+import { template as fluxoAutomacoesIa } from "./templates/fluxo-automacoes-ia.js";
+import { template as coinlyComeceAgora } from "./templates/coinly-comece-agora.js";
 import { ALL_CATEGORY, sortCategories } from "./categories.js";
 
 /**
@@ -81,6 +85,10 @@ export const templates = [
   primeiroContato,
   confirmacaoConsulta,
   lembreteDocumentos,
+  prosaDicasLeitura,
+  prosaCodigoVerificacao,
+  fluxoAutomacoesIa,
+  coinlyComeceAgora,
 ];
 
 /**

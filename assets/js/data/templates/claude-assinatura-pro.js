@@ -1,63 +1,63 @@
 /**
- * Template: Confirmação de assinatura — Claude (Anthropic), transacional/financeiro.
- * Reproduz o e-mail: card claro, logo, confirmação de cobrança, próxima data,
- * link de billing, CTA escuro e rodapé com help center + wordmark.
+ * Template: Confirmação de assinatura — Íris, transacional/financeiro.
+ * Marca fake (design de referência "Claude/Anthropic"). Card claro, logo,
+ * confirmação de cobrança, próxima data, link de billing, CTA e rodapé.
  * @type {import("../../../../types/template").EmailTemplate}
  */
 export const template = {
   id: "claude-assinatura-pro",
   slug: "claude-assinatura-pro",
-  name: "Confirmação de assinatura — Claude",
+  name: "Confirmação de assinatura — Íris",
   description:
     "E-mail transacional de confirmação de assinatura/cobrança, com próxima data de pagamento, link de billing e CTA.",
   category: "Confirmação",
   segment: "Tecnologia",
-  subject: "Thanks for starting your Pro subscription",
-  preheader: "Your payment was processed. See your next charge date and billing options.",
+  subject: "Obrigado por começar sua assinatura Pro",
+  preheader: "Seu pagamento foi processado. Veja a próxima cobrança e as opções da assinatura.",
   thumbnail: "",
   createdAt: "2026-10-09",
   updatedAt: "2026-10-09",
   publicacao: {
-    nome: "Confirmação de assinatura — Claude",
+    nome: "Confirmação de assinatura — Íris",
     categoria: "Financeiro",
     subcategoria: "Sem subcategoria",
     status: "Publicado",
-    assunto: "Thanks for starting your Pro subscription",
+    assunto: "Obrigado por começar sua assinatura Pro",
   },
   variables: [
     {
       key: "nome_cliente",
       label: "Nome do cliente",
-      description: "Nome exibido na saudação (ex.: Smiles Davis).",
+      description: "Nome exibido na saudação.",
     },
     {
       key: "data_cobranca",
       label: "Data da próxima cobrança",
-      description: "Próxima data de cobrança (ex.: Jan 15, 2026).",
+      description: "Próxima data de cobrança (ex.: 15 de jan. de 2026).",
     },
     {
       key: "url_billing",
-      label: "URL — Billing settings",
+      label: "URL — Cobrança",
       description: "Link para a página de configurações de cobrança.",
     },
     {
       key: "url_botao",
       label: "URL do botão",
-      description: "Link do botão “Chat with Claude”.",
+      description: "Link do botão “Conversar com a Íris”.",
     },
     {
       key: "url_help",
-      label: "URL — Help center",
+      label: "URL — Central de ajuda",
       description: "Link da central de ajuda no rodapé.",
     },
   ],
   html: `<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="pt-BR" xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Your Pro subscription</title>
+  <title>Sua assinatura Pro</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -74,7 +74,7 @@ export const template = {
 </head>
 <body style="margin:0; padding:0; background-color:#efece5; font-family:'Lora','Georgia',serif; color:#333333;">
   <div style="display:none; max-height:0; overflow:hidden; mso-hide:all; font-size:1px; line-height:1px; color:#efece5;">
-    Your payment was processed. See your next charge date and billing options.&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+    Seu pagamento foi processado. Veja a próxima cobrança e as opções da assinatura.&nbsp;&zwnj;&nbsp;&zwnj;
   </div>
 
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#efece5;">
@@ -99,20 +99,20 @@ export const template = {
                         </g>
                       </svg>
                     </span>
-                    <span class="serif" style="vertical-align:middle; font-size:24px; color:#1f1f1f; margin-left:8px;">Claude</span>
+                    <span class="serif" style="vertical-align:middle; font-size:24px; color:#1f1f1f; margin-left:8px;">Íris</span>
                   </td>
                 </tr>
                 <!-- Corpo -->
                 <tr>
                   <td class="px serif" style="padding:0 48px 0 48px; font-size:17px; line-height:1.65; color:#333333;">
-                    <p style="margin:0 0 20px 0;">Thanks for starting your Pro subscription, {{nome_cliente}}</p>
+                    <p style="margin:0 0 20px 0;">Obrigado por começar sua assinatura Pro, {{nome_cliente}}</p>
                     <p style="margin:0 0 20px 0;">
-                      Your payment method has been charged. The next charge will be on
+                      Seu método de pagamento foi cobrado. A próxima cobrança será em
                       <strong>{{data_cobranca}}</strong>.
                     </p>
                     <p style="margin:0 0 28px 0;">
-                      You can modify your payment method or cancel your subscription anytime by visiting
-                      the Claude <a href="{{url_billing}}" target="_blank" style="color:#3a3a3a; text-decoration:underline;">billing settings</a> page.
+                      Você pode alterar o método de pagamento ou cancelar a assinatura quando quiser na
+                      página de <a href="{{url_billing}}" target="_blank" style="color:#3a3a3a; text-decoration:underline;">configurações de cobrança</a> da Íris.
                     </p>
                   </td>
                 </tr>
@@ -121,7 +121,7 @@ export const template = {
                   <td class="px" style="padding:0 48px 44px 48px;">
                     <a href="{{url_botao}}" target="_blank"
                        style="display:inline-block; background-color:#141413; color:#ffffff; font-family:'Inter',Arial,sans-serif; font-weight:500; font-size:16px; text-decoration:none; padding:14px 24px; border-radius:10px;">
-                      Chat with Claude
+                      Conversar com a Íris
                     </a>
                   </td>
                 </tr>
@@ -129,19 +129,19 @@ export const template = {
             </td>
           </tr>
 
-          <!-- Help center -->
+          <!-- Central de ajuda -->
           <tr>
             <td class="serif" style="padding:36px 24px 0 24px; text-align:center; font-size:16px; line-height:1.6; color:#5a564e;">
-              For any further questions, please visit our
-              <a href="{{url_help}}" target="_blank" style="color:#5a564e; text-decoration:underline;">help center</a>.
+              Para outras dúvidas, acesse nossa
+              <a href="{{url_help}}" target="_blank" style="color:#5a564e; text-decoration:underline;">central de ajuda</a>.
             </td>
           </tr>
 
           <!-- Rodapé -->
           <tr>
             <td style="padding:34px 24px 0 24px; text-align:center;">
-              <p style="margin:0 0 10px 0; font-family:'Inter',Arial,sans-serif; font-size:16px; font-weight:600; letter-spacing:1px; color:#6b665d;">ANTHROP\\C</p>
-              <p style="margin:0; font-size:14px; color:#8a857b;">Claude.ai · Research · Products · Company</p>
+              <p style="margin:0 0 10px 0; font-family:'Inter',Arial,sans-serif; font-size:16px; font-weight:600; letter-spacing:1px; color:#6b665d;">ÍRIS LABS</p>
+              <p style="margin:0; font-size:14px; color:#8a857b;">Íris.ai · Pesquisa · Produtos · Empresa</p>
             </td>
           </tr>
 

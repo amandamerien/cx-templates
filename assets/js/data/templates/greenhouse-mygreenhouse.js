@@ -1,5 +1,5 @@
 /**
- * Template: Boas-vindas — MyGreenhouse (onboarding de produto, estilo clean).
+ * Template: Boas-vindas — MyTalently (onboarding de produto, estilo clean).
  * Reproduz o layout do e-mail de boas-vindas: logo, hero, lista de benefícios
  * com destaque, botão e rodapé com link de preferências. Hero como placeholder.
  * @type {import("../../../../types/template").EmailTemplate}
@@ -7,39 +7,39 @@
 export const template = {
   id: "greenhouse-mygreenhouse",
   slug: "greenhouse-mygreenhouse",
-  name: "Boas-vindas — MyGreenhouse",
+  name: "Boas-vindas — MyTalently",
   description:
     "E-mail de boas-vindas/onboarding minimalista, com hero, lista de benefícios em destaque, CTA e rodapé com preferências.",
   category: "Boas-vindas",
   segment: "Tecnologia",
-  subject: "MyGreenhouse: your new home for finding roles",
+  subject: "MyTalently: seu novo lar para encontrar vagas",
   preheader:
-    "Discover jobs, apply faster and track your progress — all in one place.",
+    "Descubra vagas, candidate-se mais rápido e acompanhe seu progresso — tudo em um só lugar.",
   thumbnail: "",
   createdAt: "2026-10-09",
   updatedAt: "2026-10-09",
   publicacao: {
-    nome: "Boas-vindas — MyGreenhouse",
+    nome: "Boas-vindas — MyTalently",
     categoria: "Onboarding",
     subcategoria: "Newsletter",
     status: "Publicado",
-    assunto: "MyGreenhouse: your new home for finding roles",
+    assunto: "MyTalently: seu novo lar para encontrar vagas",
   },
   variables: [
     {
       key: "nome_cliente",
       label: "Nome do destinatário",
-      description: "Nome exibido na saudação (ex.: Hello, Ana).",
+      description: "Nome exibido na saudação (ex.: Olá, Ana).",
     },
     {
       key: "url_botao",
       label: "URL do botão",
-      description: "Link acionado no botão “Start your search”.",
+      description: "Link acionado no botão “Começar minha busca”.",
     },
     {
       key: "url_preferencias",
       label: "URL de preferências",
-      description: "Link de “Update your email preferences” no rodapé.",
+      description: "Link de “Atualizar preferências de e-mail” no rodapé.",
     },
     {
       key: "ano",
@@ -48,12 +48,12 @@ export const template = {
     },
   ],
   html: `<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="pt-BR" xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Welcome to MyGreenhouse</title>
+  <title>Boas-vindas ao MyTalently</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -71,7 +71,7 @@ export const template = {
 </head>
 <body style="margin:0; padding:0; background-color:#f1f3f0; font-family:'Inter',Arial,Helvetica,sans-serif; color:#333333;">
   <div style="display:none; max-height:0; overflow:hidden; mso-hide:all; font-size:1px; line-height:1px; color:#f1f3f0;">
-    Discover jobs, apply faster and track your progress — all in one place.&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+    Descubra vagas, candidate-se mais rápido e acompanhe seu progresso — tudo em um só lugar.&nbsp;&zwnj;&nbsp;&zwnj;
   </div>
 
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f1f3f0;">
@@ -82,7 +82,7 @@ export const template = {
           <!-- Logo -->
           <tr>
             <td style="padding:24px 0 28px 0; text-align:center;">
-              <span class="logo" style="font-size:34px; color:#2e9c66; letter-spacing:-0.5px;">greenhouse</span>
+              <span class="logo" style="font-size:34px; color:#2e9c66; letter-spacing:-0.5px;">talently</span>
             </td>
           </tr>
 
@@ -104,41 +104,41 @@ export const template = {
                 <!-- Conteúdo -->
                 <tr>
                   <td class="px" style="padding:28px 40px 8px 40px;">
-                    <p style="margin:0 0 20px 0; font-size:17px; line-height:1.6; color:#333333;">Hello, {{nome_cliente}}</p>
+                    <p style="margin:0 0 20px 0; font-size:17px; line-height:1.6; color:#333333;">Olá, {{nome_cliente}}</p>
                     <p style="margin:0 0 22px 0; font-size:17px; line-height:1.6; color:#333333;">
-                      MyGreenhouse is your new home for finding roles and following applications—so you
-                      can land your next job with less stress.
+                      O MyTalently é o seu novo lar para encontrar vagas e acompanhar candidaturas —
+                      para você conquistar o próximo emprego com menos estresse.
                     </p>
 
                     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 6px 0;">
                       <tr>
                         <td valign="top" style="padding:0 10px 14px 4px; font-size:17px; line-height:1.5; color:#333333; width:18px;">•</td>
                         <td valign="top" style="padding:0 0 14px 0; font-size:17px; line-height:1.5; color:#333333;">
-                          <strong>Discover jobs</strong> that meet your needs, like salary, part-time or remote-only.
+                          <strong>Descubra vagas</strong> que combinam com você, como salário, meio período ou 100% remoto.
                         </td>
                       </tr>
                       <tr>
                         <td valign="top" style="padding:0 10px 14px 4px; font-size:17px; line-height:1.5; color:#333333;">•</td>
                         <td valign="top" style="padding:0 0 14px 0; font-size:17px; line-height:1.5; color:#333333;">
-                          <strong>Apply faster</strong> with passwordless sign-in and auto-completed applications.
+                          <strong>Candidate-se mais rápido</strong> com login sem senha e candidaturas preenchidas automaticamente.
                         </td>
                       </tr>
                       <tr>
                         <td valign="top" style="padding:0 10px 14px 4px; font-size:17px; line-height:1.5; color:#333333;">•</td>
                         <td valign="top" style="padding:0 0 14px 0; font-size:17px; line-height:1.5; color:#333333;">
-                          <strong>Get noticed</strong> by marking applications as Dream Jobs.
+                          <strong>Seja notado</strong> marcando vagas como Vaga dos Sonhos.
                         </td>
                       </tr>
                       <tr>
                         <td valign="top" style="padding:0 10px 0 4px; font-size:17px; line-height:1.5; color:#333333;">•</td>
                         <td valign="top" style="padding:0; font-size:17px; line-height:1.5; color:#333333;">
-                          <strong>Track your progress</strong> by seeing all your application updates in one place.
+                          <strong>Acompanhe seu progresso</strong> vendo todas as atualizações das suas candidaturas em um só lugar.
                         </td>
                       </tr>
                     </table>
 
                     <p style="margin:22px 0 0 0; font-size:17px; line-height:1.6; color:#333333;">
-                      Your next role could be one easy search away.
+                      Sua próxima vaga pode estar a uma busca de distância.
                     </p>
                   </td>
                 </tr>
@@ -148,7 +148,7 @@ export const template = {
                   <td align="center" style="padding:26px 40px 40px 40px;">
                     <a href="{{url_botao}}" target="_blank"
                        style="display:inline-block; background-color:#2f6fe0; color:#ffffff; font-family:'Inter',Arial,sans-serif; font-weight:600; font-size:16px; text-decoration:none; padding:14px 26px; border-radius:6px;">
-                      Start your search
+                      Começar minha busca
                     </a>
                   </td>
                 </tr>
@@ -161,10 +161,10 @@ export const template = {
           <tr>
             <td style="padding:24px 24px 8px 24px; text-align:center;">
               <p style="margin:0 0 14px 0; font-size:14px;">
-                <a href="{{url_preferencias}}" target="_blank" style="color:#2f6fe0; text-decoration:underline;">Update your email preferences</a>
+                <a href="{{url_preferencias}}" target="_blank" style="color:#2f6fe0; text-decoration:underline;">Atualizar preferências de e-mail</a>
               </p>
               <p style="margin:0; font-size:13px; line-height:1.5; color:#8a8f98;">
-                © {{ano}} Greenhouse&nbsp;&nbsp;•&nbsp;&nbsp;228 Park Ave. S PMB 14744 New York, NY 10003-1502
+                © {{ano}} Talently&nbsp;&nbsp;•&nbsp;&nbsp;Av. Paulista, 1000 · São Paulo, SP
               </p>
             </td>
           </tr>
