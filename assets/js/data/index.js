@@ -27,6 +27,10 @@ import { template as bravusBarbeariaAgende } from "./templates/bravus-barbearia-
 import { template as edducaDogTreinamento } from "./templates/edduca-dog-treinamento.js";
 import { template as advideoAiAnuncios } from "./templates/advideo-ai-anuncios.js";
 import { template as greenhouseMyGreenhouse } from "./templates/greenhouse-mygreenhouse.js";
+import { template as markerBoasVindas } from "./templates/marker-boas-vindas.js";
+import { template as fyproBoasVindas } from "./templates/fypro-boas-vindas.js";
+import { template as claudeAssinaturaPro } from "./templates/claude-assinatura-pro.js";
+import { template as gammaBoasVindas } from "./templates/gamma-boas-vindas.js";
 import { template as primeiroContato } from "./templates/primeiro-contato.js";
 import { template as confirmacaoConsulta } from "./templates/confirmacao-consulta.js";
 import { template as lembreteDocumentos } from "./templates/lembrete-documentos.js";
@@ -54,6 +58,10 @@ export const templates = [
   edducaDogTreinamento,
   advideoAiAnuncios,
   greenhouseMyGreenhouse,
+  markerBoasVindas,
+  fyproBoasVindas,
+  claudeAssinaturaPro,
+  gammaBoasVindas,
   primeiroContato,
   confirmacaoConsulta,
   lembreteDocumentos,
