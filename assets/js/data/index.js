@@ -46,6 +46,17 @@ import { template as prosaDicasLeitura } from "./templates/prosa-dicas-leitura.j
 import { template as prosaCodigoVerificacao } from "./templates/prosa-codigo-verificacao.js";
 import { template as fluxoAutomacoesIa } from "./templates/fluxo-automacoes-ia.js";
 import { template as coinlyComeceAgora } from "./templates/coinly-comece-agora.js";
+import { template as atendoCopilotoLancamento } from "./templates/atendo-copiloto-lancamento.js";
+import { template as engajoConviteTime } from "./templates/engajo-convite-time.js";
+import { template as zeloSuporteCompleto } from "./templates/zelo-suporte-completo.js";
+import { template as serenoCheckIn } from "./templates/sereno-check-in.js";
+import { template as curseoOferta3Por1 } from "./templates/curseo-oferta-3-por-1.js";
+import { template as tareflyMaisUmaSemana } from "./templates/tarefly-mais-uma-semana.js";
+import { template as fluentoConfirmeEmail } from "./templates/fluento-confirme-email.js";
+import { template as iconixContaQuasePronta } from "./templates/iconix-conta-quase-pronta.js";
+import { template as quizzyVerifiqueEmail } from "./templates/quizzy-verifique-email.js";
+import { template as viajaBoasVindas } from "./templates/viaja-boas-vindas.js";
+import { template as telaflixCriarConta } from "./templates/telaflix-criar-conta.js";
 import { ALL_CATEGORY, sortCategories } from "./categories.js";
 
 /**
@@ -89,6 +100,17 @@ export const templates = [
   prosaCodigoVerificacao,
   fluxoAutomacoesIa,
   coinlyComeceAgora,
+  atendoCopilotoLancamento,
+  engajoConviteTime,
+  zeloSuporteCompleto,
+  serenoCheckIn,
+  curseoOferta3Por1,
+  tareflyMaisUmaSemana,
+  fluentoConfirmeEmail,
+  iconixContaQuasePronta,
+  quizzyVerifiqueEmail,
+  viajaBoasVindas,
+  telaflixCriarConta,
 ];
 
 /**
