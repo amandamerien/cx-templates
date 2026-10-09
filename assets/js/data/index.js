@@ -67,6 +67,16 @@ import { template as zeloPerguntasFrequentes } from "./templates/zelo-perguntas-
 import { template as ataAiIntegracoes } from "./templates/ata-ai-integracoes.js";
 import { template as streamiaBoasVindas } from "./templates/streamia-boas-vindas.js";
 import { template as raizesBoasVindas } from "./templates/raizes-boas-vindas.js";
+import { template as vessaAniversarioCupom } from "./templates/vessa-aniversario-cupom.js";
+import { template as garimpoCarrinhoAbandonado } from "./templates/garimpo-carrinho-abandonado.js";
+import { template as nuvemCafePesquisaNps } from "./templates/nuvem-cafe-pesquisa-nps.js";
+import { template as lumoRedefinirSenha } from "./templates/lumo-redefinir-senha.js";
+import { template as caixotePedidoConfirmado } from "./templates/caixote-pedido-confirmado.js";
+import { template as odontobemLembreteConsulta } from "./templates/odontobem-lembrete-consulta.js";
+import { template as studioNorteProposta } from "./templates/studio-norte-proposta.js";
+import { template as pumpfitSentimosFalta } from "./templates/pumpfit-sentimos-falta.js";
+import { template as pagoNovidadesMes } from "./templates/pago-novidades-mes.js";
+import { template as sincronoConviteWebinar } from "./templates/sincrono-convite-webinar.js";
 import { ALL_CATEGORY, sortCategories } from "./categories.js";
 
 /**
@@ -131,6 +141,16 @@ export const templates = [
   ataAiIntegracoes,
   streamiaBoasVindas,
   raizesBoasVindas,
+  vessaAniversarioCupom,
+  garimpoCarrinhoAbandonado,
+  nuvemCafePesquisaNps,
+  lumoRedefinirSenha,
+  caixotePedidoConfirmado,
+  odontobemLembreteConsulta,
+  studioNorteProposta,
+  pumpfitSentimosFalta,
+  pagoNovidadesMes,
+  sincronoConviteWebinar,
 ];
 
 /**

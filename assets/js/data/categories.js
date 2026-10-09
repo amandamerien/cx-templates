@@ -46,6 +46,9 @@ export const SEGMENTS = [
   "Turismo",
   "Entretenimento",
   "Casa e Jardim",
+  "Serviços",
+  "Fitness",
+  "Finanças",
 ];
 
 /**
