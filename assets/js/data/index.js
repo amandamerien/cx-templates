@@ -26,6 +26,7 @@ import { template as helenaPradoBoasVindas } from "./templates/helena-prado-boas
 import { template as bravusBarbeariaAgende } from "./templates/bravus-barbearia-agende.js";
 import { template as edducaDogTreinamento } from "./templates/edduca-dog-treinamento.js";
 import { template as advideoAiAnuncios } from "./templates/advideo-ai-anuncios.js";
+import { template as greenhouseMyGreenhouse } from "./templates/greenhouse-mygreenhouse.js";
 import { template as primeiroContato } from "./templates/primeiro-contato.js";
 import { template as confirmacaoConsulta } from "./templates/confirmacao-consulta.js";
 import { template as lembreteDocumentos } from "./templates/lembrete-documentos.js";
@@ -52,6 +53,7 @@ export const templates = [
   bravusBarbeariaAgende,
   edducaDogTreinamento,
   advideoAiAnuncios,
+  greenhouseMyGreenhouse,
   primeiroContato,
   confirmacaoConsulta,
   lembreteDocumentos,
