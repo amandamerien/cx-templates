@@ -31,6 +31,14 @@ import { template as markerBoasVindas } from "./templates/marker-boas-vindas.js"
 import { template as fyproBoasVindas } from "./templates/fypro-boas-vindas.js";
 import { template as claudeAssinaturaPro } from "./templates/claude-assinatura-pro.js";
 import { template as gammaBoasVindas } from "./templates/gamma-boas-vindas.js";
+import { template as brightnestNewsletter } from "./templates/brightnest-newsletter.js";
+import { template as budgetlyBoasVindas } from "./templates/budgetly-boas-vindas.js";
+import { template as stowlyBoasVindas } from "./templates/stowly-boas-vindas.js";
+import { template as weblumeGetStarted } from "./templates/weblume-get-started.js";
+import { template as tracklyBoasVindas } from "./templates/trackly-boas-vindas.js";
+import { template as rossaInscricao } from "./templates/rossa-inscricao.js";
+import { template as reviewlyBoasVindas } from "./templates/reviewly-boas-vindas.js";
+import { template as bakerNoirBoasVindas } from "./templates/baker-noir-boas-vindas.js";
 import { template as primeiroContato } from "./templates/primeiro-contato.js";
 import { template as confirmacaoConsulta } from "./templates/confirmacao-consulta.js";
 import { template as lembreteDocumentos } from "./templates/lembrete-documentos.js";
@@ -62,6 +70,14 @@ export const templates = [
   fyproBoasVindas,
   claudeAssinaturaPro,
   gammaBoasVindas,
+  brightnestNewsletter,
+  budgetlyBoasVindas,
+  stowlyBoasVindas,
+  weblumeGetStarted,
+  tracklyBoasVindas,
+  rossaInscricao,
+  reviewlyBoasVindas,
+  bakerNoirBoasVindas,
   primeiroContato,
   confirmacaoConsulta,
   lembreteDocumentos,
