@@ -57,6 +57,16 @@ import { template as iconixContaQuasePronta } from "./templates/iconix-conta-qua
 import { template as quizzyVerifiqueEmail } from "./templates/quizzy-verifique-email.js";
 import { template as viajaBoasVindas } from "./templates/viaja-boas-vindas.js";
 import { template as telaflixCriarConta } from "./templates/telaflix-criar-conta.js";
+import { template as pixelaBoasVindas } from "./templates/pixela-boas-vindas.js";
+import { template as dominixBoasVindas } from "./templates/dominix-boas-vindas.js";
+import { template as testiaBetaAprovado } from "./templates/testia-beta-aprovado.js";
+import { template as orbitaConfiancaClientes } from "./templates/orbita-confianca-clientes.js";
+import { template as datalisBoasVindas } from "./templates/datalis-boas-vindas.js";
+import { template as tareflyConsultoria1a1 } from "./templates/tarefly-consultoria-1a1.js";
+import { template as zeloPerguntasFrequentes } from "./templates/zelo-perguntas-frequentes.js";
+import { template as ataAiIntegracoes } from "./templates/ata-ai-integracoes.js";
+import { template as streamiaBoasVindas } from "./templates/streamia-boas-vindas.js";
+import { template as raizesBoasVindas } from "./templates/raizes-boas-vindas.js";
 import { ALL_CATEGORY, sortCategories } from "./categories.js";
 
 /**
@@ -111,6 +121,16 @@ export const templates = [
   quizzyVerifiqueEmail,
   viajaBoasVindas,
   telaflixCriarConta,
+  pixelaBoasVindas,
+  dominixBoasVindas,
+  testiaBetaAprovado,
+  orbitaConfiancaClientes,
+  datalisBoasVindas,
+  tareflyConsultoria1a1,
+  zeloPerguntasFrequentes,
+  ataAiIntegracoes,
+  streamiaBoasVindas,
+  raizesBoasVindas,
 ];
 
 /**
