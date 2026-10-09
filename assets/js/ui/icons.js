@@ -45,4 +45,8 @@ export const icons = {
   imageOff: svg(
     '<path d="M2 2l20 20M10.4 10.4a2 2 0 0 0 2.8 2.8"/><path d="M21 15V5a2 2 0 0 0-2-2H9M3 7v12a2 2 0 0 0 2 2h12"/>'
   ),
+  circle: svg('<circle cx="12" cy="12" r="9"/>'),
+  checkCircle: svg('<circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/>'),
+  send: svg('<path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7Z"/>'),
+  chevronDown: svg('<path d="m6 9 6 6 6-6"/>'),
 };

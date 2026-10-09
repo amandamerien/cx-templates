@@ -393,6 +393,83 @@
   flex: 1;
 }
 
+/* ---------- Status do template (definido pela pessoa) ---------- */
+.filters--status {
+  margin-top: var(--sp-4);
+  padding-bottom: 0;
+}
+/* Cores por status ativo, para diferenciar da faixa de categorias */
+.filters--status .chip[data-category="finalizado"][aria-pressed="true"] {
+  background: var(--success-600);
+  border-color: var(--success-600);
+}
+.filters--status .chip[data-category="publicado"][aria-pressed="true"] {
+  background: #2f5bff;
+  border-color: #2f5bff;
+}
+
+.card__status {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-3) var(--sp-5);
+  border-top: 1px solid var(--border);
+}
+.card__status-label {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  color: var(--text-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.card__status-select {
+  margin-left: auto;
+  appearance: none;
+  -webkit-appearance: none;
+  padding: var(--sp-1) calc(var(--sp-6)) var(--sp-1) var(--sp-3);
+  min-height: 32px;
+  font-family: inherit;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-strong);
+  background-color: var(--surface);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--sp-2) center;
+  background-size: 14px;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color var(--t-fast), background-color var(--t-fast),
+    color var(--t-fast);
+}
+.card__status-select:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--ring);
+}
+/* Cor conforme o status selecionado */
+.card__status-select[data-status="rascunho"] {
+  color: var(--text-muted);
+}
+.card__status-select[data-status="finalizado"] {
+  color: var(--success-700);
+  border-color: var(--success-500);
+  background-color: var(--success-50);
+}
+.card__status-select[data-status="publicado"] {
+  color: #1e40ff;
+  border-color: #6b86ff;
+  background-color: #eef2ff;
+}
+/* Faixa colorida à esquerda do card conforme o status */
+.card[data-status="finalizado"] {
+  border-left: 3px solid var(--success-500);
+}
+.card[data-status="publicado"] {
+  border-left: 3px solid #6b86ff;
+}
+
 /* ---------- Estados (vazio / erro / sem resultados / loading) ---------- */
 .state {
   grid-column: 1 / -1;

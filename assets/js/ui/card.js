@@ -3,17 +3,23 @@
  */
 
 import { icons } from "./icons.js";
+import { STATUS_ORDER, STATUS_LABEL, getStatus } from "../lib/status.js";
 
 /**
  * Cria o card de um template.
  * @param {import("../../../types/template").EmailTemplate} template
- * @param {{ onView: (t: any) => void, onCopy: (t: any, btn: HTMLButtonElement) => void }} handlers
+ * @param {{
+ *   onView: (t: any) => void,
+ *   onCopy: (t: any, btn: HTMLButtonElement) => void,
+ *   onStatusChange?: (t: any, status: string) => void
+ * }} handlers
  * @returns {HTMLElement}
  */
-export function createCard(template, { onView, onCopy }) {
+export function createCard(template, { onView, onCopy, onStatusChange }) {
   const card = document.createElement("article");
   card.className = "card";
   card.dataset.slug = template.slug;
+  card.dataset.status = getStatus(template.slug);
 
   // ---- Preview (miniatura) ----
   const preview = document.createElement("div");
@@ -87,7 +93,41 @@ export function createCard(template, { onView, onCopy }) {
   copyBtn.addEventListener("click", () => onCopy(template, copyBtn));
 
   actions.append(viewBtn, copyBtn);
-  card.append(preview, body, actions);
+
+  // ---- Barra de status (definido pela pessoa, salvo localmente) ----
+  const statusBar = document.createElement("div");
+  statusBar.className = "card__status";
+
+  const statusLabel = document.createElement("span");
+  statusLabel.className = "card__status-label";
+  statusLabel.textContent = "Status";
+
+  const current = getStatus(template.slug);
+  const select = document.createElement("select");
+  select.className = "card__status-select";
+  select.dataset.status = current;
+  select.setAttribute("aria-label", `Status do template ${template.name}`);
+  const dotId = `st-${template.slug}`;
+  statusLabel.id = dotId;
+  select.setAttribute("aria-labelledby", `${dotId}`);
+
+  STATUS_ORDER.forEach((s) => {
+    const opt = document.createElement("option");
+    opt.value = s;
+    opt.textContent = STATUS_LABEL[s];
+    if (s === current) opt.selected = true;
+    select.appendChild(opt);
+  });
+
+  select.addEventListener("change", () => {
+    const value = select.value;
+    select.dataset.status = value;
+    card.dataset.status = value;
+    if (typeof onStatusChange === "function") onStatusChange(template, value);
+  });
+
+  statusBar.append(statusLabel, select);
+  card.append(preview, body, statusBar, actions);
 
   return card;
 }

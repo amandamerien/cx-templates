@@ -14,11 +14,16 @@
  * @param {Record<string, number>} opts.counts - contagem por categoria
  * @param {string} opts.active - categoria ativa
  * @param {(category: string) => void} opts.onSelect
+ * @param {string} [opts.ariaLabel] - rótulo da toolbar (acessibilidade)
+ * @param {(value: string) => string} [opts.labelFor] - texto exibido para cada valor
  */
-export function renderFilters(container, { categories, counts, active, onSelect }) {
+export function renderFilters(
+  container,
+  { categories, counts, active, onSelect, ariaLabel, labelFor }
+) {
   container.innerHTML = "";
   container.setAttribute("role", "toolbar");
-  container.setAttribute("aria-label", "Filtrar por categoria");
+  container.setAttribute("aria-label", ariaLabel || "Filtrar por categoria");
 
   categories.forEach((category) => {
     const chip = document.createElement("button");
@@ -30,7 +35,7 @@ export function renderFilters(container, { categories, counts, active, onSelect 
     chip.tabIndex = isActive ? 0 : -1;
 
     const label = document.createElement("span");
-    label.textContent = category;
+    label.textContent = labelFor ? labelFor(category) : category;
     chip.appendChild(label);
 
     const count = counts[category];

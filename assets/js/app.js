@@ -5,6 +5,14 @@
 import { filterTemplates } from "./lib/search.js";
 import { copyText } from "./lib/clipboard.js";
 import { ALL_CATEGORY } from "./data/categories.js";
+import {
+  getStatus,
+  setStatus,
+  getStatusCounts,
+  STATUS,
+  STATUS_ORDER,
+  STATUS_LABEL,
+} from "./lib/status.js";
 import { createCard } from "./ui/card.js";
 import { renderFilters } from "./ui/filters.js";
 import { openModal, closeModal, isModalOpen } from "./ui/modal.js";
@@ -22,17 +30,19 @@ import { icons } from "./ui/icons.js";
 const dom = {
   grid: document.getElementById("grid"),
   filters: document.getElementById("filters"),
+  statusFilter: document.getElementById("status-filter"),
   search: /** @type {HTMLInputElement} */ (document.getElementById("search")),
   searchClear: document.getElementById("search-clear"),
   count: document.getElementById("result-count"),
   liveRegion: document.getElementById("sr-live"),
 };
 
-/** @type {{ all: EmailTemplate[], query: string, category: string, loaded: boolean }} */
+/** @type {{ all: EmailTemplate[], query: string, category: string, status: string, loaded: boolean }} */
 const state = {
   all: [],
   query: "",
   category: ALL_CATEGORY,
+  status: STATUS.RASCUNHO, // tela inicial = rascunho (o que ainda falta fazer)
   loaded: false,
 };
 
@@ -117,10 +127,28 @@ function render() {
   if (!state.loaded) return;
   dom.grid.setAttribute("aria-busy", "false");
 
-  // Filtros dinâmicos (derivados dos dados)
+  // Filtro por status de trabalho (Rascunho / Finalizados / Publicados)
+  const statusCounts = getStatusCounts(state.all);
+  renderFilters(dom.statusFilter, {
+    categories: STATUS_ORDER,
+    counts: statusCounts,
+    active: state.status,
+    ariaLabel: "Filtrar por status",
+    labelFor: (s) => STATUS_LABEL[s] || s,
+    onSelect: (status) => {
+      state.status = status;
+      state.category = ALL_CATEGORY; // evita categoria "presa" sem itens na nova faixa
+      render();
+    },
+  });
+
+  // Recorta pela faixa de status atual antes dos demais filtros
+  const inStatus = state.all.filter((t) => getStatus(t.slug) === state.status);
+
+  // Filtros de categoria derivados do subconjunto do status atual
   renderFilters(dom.filters, {
-    categories: registry.getCategories(state.all),
-    counts: registry.getCategoryCounts(state.all),
+    categories: registry.getCategories(inStatus),
+    counts: registry.getCategoryCounts(inStatus),
     active: state.category,
     onSelect: (category) => {
       state.category = category;
@@ -135,23 +163,79 @@ function render() {
     return;
   }
 
-  const results = filterTemplates(state.all, {
+  const results = filterTemplates(inStatus, {
     category: state.category,
     query: state.query,
   });
 
-  updateCount(results.length, state.all.length);
+  updateCount(results.length, inStatus.length);
 
   if (results.length === 0) {
-    dom.grid.replaceChildren(renderNoResults(resetFilters));
+    // Sem busca/categoria ativa, a faixa de status está realmente vazia.
+    const filtering = state.query !== "" || state.category !== ALL_CATEGORY;
+    dom.grid.replaceChildren(
+      filtering ? renderNoResults(resetFilters) : renderEmptyStatus(state.status)
+    );
     return;
   }
 
   const frag = document.createDocumentFragment();
   for (const t of results) {
-    frag.appendChild(createCard(t, { onView: openTemplate, onCopy: handleCopy }));
+    frag.appendChild(
+      createCard(t, {
+        onView: openTemplate,
+        onCopy: handleCopy,
+        onStatusChange: handleStatusChange,
+      })
+    );
   }
   dom.grid.replaceChildren(frag);
+}
+
+/**
+ * Mensagem de estado vazio específica para cada faixa de status.
+ * @param {string} status
+ */
+function renderEmptyStatus(status) {
+  const messages = {
+    [STATUS.RASCUNHO]: {
+      title: "Nenhum rascunho por aqui",
+      desc: "Todos os templates já foram finalizados ou publicados. Use o filtro acima para revê-los.",
+    },
+    [STATUS.FINALIZADO]: {
+      title: "Nenhum template finalizado ainda",
+      desc: "Marque um template como “Finalizado” no card para acompanhá-lo aqui.",
+    },
+    [STATUS.PUBLICADO]: {
+      title: "Nenhum template publicado ainda",
+      desc: "Marque um template como “Publicado” no card para acompanhá-lo aqui.",
+    },
+  };
+  const m = messages[status] || messages[STATUS.RASCUNHO];
+  const el = document.createElement("div");
+  el.className = "state";
+  el.setAttribute("role", "status");
+  el.innerHTML = `
+    <div class="state__icon">${icons.inbox}</div>
+    <h2 class="state__title"></h2>
+    <p class="state__desc"></p>
+  `;
+  el.querySelector(".state__title").textContent = m.title;
+  el.querySelector(".state__desc").textContent = m.desc;
+  return el;
+}
+
+/**
+ * Persiste o novo status, dá feedback e re-renderiza (o card sai da faixa atual).
+ * @param {EmailTemplate} template
+ * @param {string} status
+ */
+function handleStatusChange(template, status) {
+  setStatus(template.slug, status);
+  render();
+  showToast(`“${template.name}” marcado como ${STATUS_LABEL[status]}`, {
+    type: "success",
+  });
 }
 
 /**
